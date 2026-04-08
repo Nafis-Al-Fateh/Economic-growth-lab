@@ -12,15 +12,12 @@ st.set_page_config(
 st.title("Economic Growth Lab: Solow Growth Model Simulator")
 
 st.markdown("""
-**Author:** Nafis Al Fateh  
-**Major:** Economics  
-**Institution:** Shahjalal University of Science and Technology  
 
-This interactive application demonstrates the dynamics of the Solow Growth Model.
-Users can modify key parameters to observe how savings, depreciation,
-population growth, and technological progress influence long-run economic growth.
+
+Developed by **Nafis Al Fateh**  
+Economics Major  
+Shahjalal University of Science and Technology
 """)
-
 st.markdown("---")
 
 # Model explanation
@@ -119,10 +116,4 @@ with col2:
 
 st.markdown("---")
 
-st.markdown("""
-**Economic Growth Lab**
 
-Developed by **Nafis Al Fateh**  
-Economics Major  
-Shahjalal University of Science and Technology
-""")
