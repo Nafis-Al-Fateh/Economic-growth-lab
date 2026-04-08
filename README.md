@@ -72,10 +72,4 @@ The model automatically computes:
 
 ---
 
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/economic-growth-lab.git
-cd economic-growth-lab
+## Thank you for going through.
