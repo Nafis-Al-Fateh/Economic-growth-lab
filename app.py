@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Title
+# Title and author info
 st.title("Economic Growth Lab: Solow Growth Model Simulator")
 
 st.markdown("""
@@ -16,20 +16,20 @@ st.markdown("""
 **Major:** Economics  
 **Institution:** Shahjalal University of Science and Technology  
 
-This interactive application demonstrates the dynamics of the Solow Growth Model,
-allowing users to explore how savings, depreciation, population growth, and
-technological progress influence long-run economic growth.
+This interactive application demonstrates the dynamics of the Solow Growth Model.
+Users can modify key parameters to observe how savings, depreciation, population
+growth, and technological progress influence long-run economic growth.
 """)
 
 st.markdown("---")
 
-# Model description
+# Model overview
 st.subheader("Model Overview")
 
 st.markdown("""
 The Solow Growth Model explains long-run economic growth through capital accumulation,
-labor growth, and technological progress. Users can modify key parameters to observe
-how the economy converges toward a steady-state equilibrium.
+labor growth, and technological progress. Adjust the parameters in the sidebar
+to see how the economy converges to a steady-state equilibrium.
 """)
 
 # Sidebar parameters
@@ -50,21 +50,21 @@ y = np.zeros(T)
 
 k[0] = k0
 
-for t in range(T - 1):
+for t in range(T-1):
 
     y[t] = k[t] ** alpha
 
     investment = s * y[t]
     break_even = (n + g + delta) * k[t]
 
-    k[t + 1] = k[t] + investment - break_even
+    k[t+1] = k[t] + investment - break_even
 
 y[-1] = k[-1] ** alpha
 
-# Plot simulation
+# Plot section
 st.subheader("Economic Growth Simulation")
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6,4))
 
 ax.plot(k, label="Capital per Worker")
 ax.plot(y, label="Output per Worker")
@@ -74,9 +74,13 @@ ax.set_ylabel("Value")
 
 ax.legend()
 
-st.pyplot(fig)
+# Center graph
+col1, col2, col3 = st.columns([1,2,1])
 
-# Steady state calculation
+with col2:
+    st.pyplot(fig)
+
+# Steady state
 k_star = (s / (n + g + delta)) ** (1 / (1 - alpha))
 y_star = k_star ** alpha
 
